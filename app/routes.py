@@ -12,16 +12,20 @@ def index():
 @app.route('/spiritanimal.html',methods=["GET","POST"])
 
 def spiritanimal():
-    userdata=request.form
     
-    pride1=userdata["pride1"]
-    problems2=userdata["problems2"]
-    Good3=userdata["Good3"]
-    Loyalty4=userdata["Loyalty4"]
-    Care5=userdata["Care5"]
-    support6=userdata["support6"]
-    Friends7=userdata["Friends7"]
-    scared8=userdata["scared8"]
+    userdata = request.form
+    
+    pride1 = userdata["pride1"]
+    problems2 = userdata["problems2"]
+    good3 = userdata["good3"]
+    loyalty4 = userdata["loyalty4"]
+    care5 = userdata["care5"]
+    support6 = userdata["support6"]
+    friends7 = userdata["friends7"]
+    scared8 = userdata["scared8"]
+    emotions9 = userdata["emotions9"]
+    alone10 = userdata["alone10"]
+    
     total = 0
     
     if pride1 == "Yes":
@@ -42,27 +46,27 @@ def spiritanimal():
     else:
         print("NO answer")
 
-    if Good3 == "Yes":
+    if good3 == "Yes":
         total = total +3
-    elif Good3 == "No":
+    elif good3 == "No":
         total = total + 2
-    elif Good3 == "IDK":
+    elif good3 == "IDK":
         total = total + 1
     else:
         print("NO answer")
     
-    if Loyalty4 == "Yes":
+    if loyalty4 == "Yes":
         total = total +3
-    elif Loyalty4 == "No":
+    elif loyalty4 == "No":
         total = total + 2
-    elif Loyalty4 == "IDK":
+    elif loyalty4 == "IDK":
         total = total + 1
         
-    if Care5 == "Yes":
+    if care5 == "Yes":
         total = total + 3
-    elif Care5 == "No":
+    elif care5 == "No":
         total = total + 2
-    elif Care5 == "IDK":
+    elif care5 == "IDK":
         total = total + 1
         
     if support6 == "Yes":
@@ -72,11 +76,11 @@ def spiritanimal():
     elif support6 == "IDK":
         total = total + 1
         
-    if Friends7 == "Yes":
+    if friends7 == "Yes":
         total = total +3
-    elif Friends7 == "No":
+    elif friends7 == "No":
         total = total + 2
-    elif Friends7 == "IDK":
+    elif friends7 == "IDK":
         total = total + 1
         
     if scared8 == "Yes":
@@ -85,8 +89,24 @@ def spiritanimal():
         total = total + 2
     elif scared8 == "IDK":
         total = total + 1
+        
+    if emotions9 == "Yes":
+        total = total +3
+    elif emotions9 == "No":
+        total = total + 2
+    elif emotions9 == "IDK":
+        total = total + 1
+        
+    if alone10 == "Yes":
+        total = total +3
+    elif alone10 == "No":
+        total = total + 2
+    elif alone10 == "IDK":
+        total = total + 1
     else:
         print("NO answer")
+    
+    
     if total >= 11 and total<=15:
         animal= "lion"
         picture="https://www.indiewire.com/wp-content/uploads/2019/07/Screen-Shot-2019-07-11-at-10.32.46-AM.png?w=780"
@@ -100,4 +120,9 @@ def spiritanimal():
         animal= "Tiger"
         picture="https://www.highlandwildlifepark.org.uk/media/1060/15_06_30_amurtiger_male_marty_closeup.jpg"
         
-    return render_template("/spiritanimal.html", pride1=pride1,problem2=problems2,Good3=Good3,Loyalty4=Loyalty4,Care5=Care5,support6=support6,Friends7=Friends7,scared8=scared8,total=total,animal=animal,picture=picture)
+    if total >= 25 and total<=30:
+        animal= "jaguar"
+        picture="https://a-z-animals.com/media/animals/images/470x370/jaguar6.jpg"
+       
+        
+    return render_template("/spiritanimal.html", pride1=pride1,problem2=problems2,good3=good3,loyalty4=loyalty4,care5=care5,support6=support6,friends7=friends7,scared8=scared8,emotions9=emotions9,alone10=alone10,total=total,animal=animal,picture=picture)
